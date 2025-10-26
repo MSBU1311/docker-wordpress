@@ -68,27 +68,24 @@ docker-wordpress-template/
 
 ### ① リポジトリをクローン
 
-````
 ```
 git clone https://github.com/< your-username >/docker-wordpress-template.git
-
 cd docker-wordpress-template
 ```
-````
 
 ② .env を作成
 
-````
 ```
 cp .env.sample .env
 ```
-````
 
 .env を開いて、必要に応じてパスワードなどを変更します。
 
 ③ コンテナを起動
 
-- docker-compose up -d
+```
+docker-compose up -d
+```
 
 起動後、以下にアクセスできます
 
@@ -98,15 +95,18 @@ cp .env.sample .env
 
 ④ コンテナを停止
 
-- docker-compose down
+```
+docker-compose down
+```
 
 データベースを含めて完全に削除する場合 👇
 
-- docker-compose down -v
+```
+docker-compose down -v
+```
 
 🧾 PHP 設定（php.ini）
 
-````
 ```
 upload_max_filesize = 64M
 
@@ -120,7 +120,6 @@ display_errors = On
 
 error_reporting = E_ALL
 ```
-````
 
 💡 開発時は display_errors=On で OK。
 
@@ -135,7 +134,6 @@ error_reporting = E_ALL
 
 ⚠️ 注意：テンプレートを自分のプロジェクトにコピーした後このテンプレートを自身のフォルダに構築したら、.gitignore の以下 4 行の コメントアウトを解除 してください
 
-````
 ```
 # docker-compose.yml
 
@@ -145,7 +143,6 @@ error_reporting = E_ALL
 
 # .env.sample
 ```
-````
 
 📜 ライセンス
 
