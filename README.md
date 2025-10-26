@@ -73,6 +73,8 @@ git clone https://github.com/< your-username >/docker-wordpress-template.git
 cd docker-wordpress-template
 ```
 
+⚠️ フォルダ名は任意のものに変更してください。
+
 ② .env を作成
 
 ```
