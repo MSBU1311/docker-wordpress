@@ -145,9 +145,3 @@ error_reporting = E_ALL
 
 # .env.sample
 ```
-
-📜 ライセンス
-
-MIT License © 2025
-
-自由に利用・改変・配布できます。
