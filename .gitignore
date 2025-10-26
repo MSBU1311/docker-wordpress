@@ -1,0 +1,69 @@
+# ----------------------------------------
+# Docker関連
+# ----------------------------------------
+# ボリュームデータ（DBやWP本体）
+db_data/
+wp_data/
+docker-data/wordpress/uploads/
+docker-data/wordpress/cache/
+docker-data/wordpress/upgrade/
+docker-data/logs/
+.env
+*.log
+
+# ----------------------------------------
+# WordPress関連
+# ----------------------------------------
+# WordPressデフォルトテーマ（不要フォント含む）
+docker-data/wordpress/themes/twenty*/
+# 自動生成ファイル・一時ファイル
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/debug.log
+wp-config.php
+
+# ----------------------------------------
+# IDE / OS 依存ファイル
+# ----------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----------------------------------------
+# Node.js / フロントビルド系
+# ----------------------------------------
+node_modules/
+dist/
+build/
+.cache/
+*.lock
+
+# ----------------------------------------
+# Sass / PostCSS / Build系
+# ----------------------------------------
+.sass-cache/
+cache/
+*.map
+
+# ----------------------------------------
+# その他
+# ----------------------------------------
+# バックアップ・一時ファイル
+*.bak
+*.tmp
+*.old
+*.zip
+*.tar
+*.gz
+
+# ----------------------------------------
+# 残しておきたい範囲（Git管理対象）
+# ----------------------------------------
+# docker-compose.yml
+# php.ini
+# .gitignore
+# .env.sample

@@ -1,0 +1,59 @@
+services:
+  # データベース（MySQL）
+  db:
+    image: mysql:latest
+    container_name: wordpress_db # 案件毎に適宜変更
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: wordpress # 案件毎に適宜変更
+      MYSQL_USER: wordpress_user # 案件毎に適宜変更
+      MYSQL_PASSWORD: wordpress_pass # 案件毎に適宜変更
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # WordPress本体
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress_app # 案件毎に適宜変更
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wordpress # 案件毎に適宜変更
+      WORDPRESS_DB_USER: wordpress_user # 案件毎に適宜変更
+      WORDPRESS_DB_PASSWORD: wordpress_pass # 案件毎に適宜変更
+      WORDPRESS_DEBUG: 1
+    volumes:
+      # 1. WordPressコアファイル用の名前付きボリューム
+      - wp_data:/var/www/html
+      # 2. PHP設定ファイルをマウント（dbから移動）
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini
+      # 3. テーマ、プラグイン、アップロードファイルのバインドマウント
+      - ./docker-data/wordpress/themes:/var/www/html/wp-content/themes
+      - ./docker-data/wordpress/plugins:/var/www/html/wp-content/plugins
+      - ./docker-data/wordpress/uploads:/var/www/html/wp-content/uploads
+
+  # phpMyAdmin（ブラウザでDB管理用）
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: wordpress_phpmyadmin # 案件毎に適宜変更
+    depends_on:
+      - db
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root_password
+
+  # MailHog
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  db_data:
+  wp_data:
