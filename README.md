@@ -7,6 +7,7 @@
 ## 概要
 
 このリポジトリは、**Docker で WordPress をすぐに立ち上げられる開発用テンプレート**です。
+
 WordPress 本体、MySQL、phpMyAdmin、MailHog を自動で構築します。
 
 以下のような用途に最適です
@@ -31,14 +32,23 @@ WordPress 本体、MySQL、phpMyAdmin、MailHog を自動で構築します。
 ## ディレクトリ構成
 
 docker-wordpress-template/
+
 ├── docker-compose.yml # コンテナ設定
+
 ├── php.ini # PHP 設定ファイル
+
 ├── .env.sample # 環境変数サンプル
+
 ├── .gitignore # 除外設定
+
 ├── README.md # 本ドキュメント
+
 └── docker-data/
+
 └── wordpress/
+
 └── themes/
+
 └── your-theme/ # 自作テーマをここに配置
 
 ---
@@ -58,38 +68,46 @@ docker-wordpress-template/
 
 ### ① リポジトリをクローン
 
+````
+```
 git clone https://github.com/< your-username >/docker-wordpress-template.git
 
 cd docker-wordpress-template
+```
+````
 
 ② .env を作成
 
+````
+```
 cp .env.sample .env
+```
+````
 
 .env を開いて、必要に応じてパスワードなどを変更します。
 
 ③ コンテナを起動
 
-docker-compose up -d
+- docker-compose up -d
 
 起動後、以下にアクセスできます
 
-WordPress → http://localhost:8080
-
-phpMyAdmin → http://localhost:8081
-
-MailHog → http://localhost:8025
+- WordPress → http://localhost:8080
+- phpMyAdmin → http://localhost:8081
+- MailHog → http://localhost:8025
 
 ④ コンテナを停止
 
-docker-compose down
+- docker-compose down
 
 データベースを含めて完全に削除する場合 👇
 
-docker-compose down -v
+- docker-compose down -v
 
 🧾 PHP 設定（php.ini）
 
+````
+```
 upload_max_filesize = 64M
 
 post_max_size = 64M
@@ -101,6 +119,8 @@ max_execution_time = 300
 display_errors = On
 
 error_reporting = E_ALL
+```
+````
 
 💡 開発時は display_errors=On で OK。
 
@@ -108,16 +128,15 @@ error_reporting = E_ALL
 
 ⭐️ 補足メモ
 
-.env は Git 管理対象外（.gitignore に登録済み）
-
-.env.sample は共有用テンプレートとしてリポジトリに含めます
-
-docker-data/wordpress/themes/ 以下に自作テーマを置くことで開発可能
-
-twentytwenty〜 系テーマは自動生成されるため、Git 管理不要
+- .env は Git 管理対象外（.gitignore に登録済み）
+- .env.sample は共有用テンプレートとしてリポジトリに含めます
+- docker-data/wordpress/themes/ 以下に自作テーマを置くことで開発可能
+- twentytwenty〜 系テーマは自動生成されるため、Git 管理不要
 
 ⚠️ 注意：テンプレートを自分のプロジェクトにコピーした後このテンプレートを自身のフォルダに構築したら、.gitignore の以下 4 行の コメントアウトを解除 してください
 
+````
+```
 # docker-compose.yml
 
 # php.ini
@@ -125,6 +144,8 @@ twentytwenty〜 系テーマは自動生成されるため、Git 管理不要
 # .gitignore
 
 # .env.sample
+```
+````
 
 📜 ライセンス
 
