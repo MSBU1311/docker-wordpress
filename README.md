@@ -69,11 +69,11 @@ docker-wordpress-template/
 ### ① リポジトリをクローン
 
 ```
-git clone https://github.com/< your-username >/docker-wordpress-template.git
+git clone https://github.com/< your-username >/docker-wordpress-template.git <your-directoryname>
 cd docker-wordpress-template
 ```
 
-⚠️ フォルダ名は任意のものに変更してください。
+< your-directoryname >部分を任意の名前に変更してください。
 
 ② .env を作成
 
