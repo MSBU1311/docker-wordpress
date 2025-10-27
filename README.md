@@ -32,23 +32,14 @@ WordPress 本体、MySQL、phpMyAdmin、MailHog を自動で構築します。
 ## ディレクトリ構成
 
 docker-wordpress-template/
-
 ├── docker-compose.yml # コンテナ設定
-
 ├── php.ini # PHP 設定ファイル
-
 ├── .env.sample # 環境変数サンプル
-
 ├── .gitignore # 除外設定
-
 ├── README.md # 本ドキュメント
-
  └── docker-data/
-
   └── wordpress/
-
    └── themes/
-
     └── your-theme/ # 自作テーマをここに配置
 
 ---
