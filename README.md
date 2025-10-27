@@ -43,13 +43,13 @@ docker-wordpress-template/
 
 ├── README.md # 本ドキュメント
 
-└── docker-data/
+ └── docker-data/
 
-└── wordpress/
+  └── wordpress/
 
-└── themes/
+   └── themes/
 
-└── your-theme/ # 自作テーマをここに配置
+    └── your-theme/ # 自作テーマをここに配置
 
 ---
 
